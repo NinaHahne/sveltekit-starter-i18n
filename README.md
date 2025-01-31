@@ -1,38 +1,68 @@
-# sv
+# Figures SvelteKit Starter
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a **SvelteKit starter template** for new projects. It includes:
 
-## Creating a project
+- ✅ **SvelteKit** with TypeScript
+- ✅ **TailwindCSS** for styling
+- ✅ **ESLint & Prettier** for code formatting
+- ✅ **Example routing (`/about`)** for structure reference
+- ✅ **Reusable utilities (`src/lib/`)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🚀 Getting Started
 
+### 1️⃣ Install dependencies
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+### 2️⃣ Start the development server
 ```bash
 npm run dev
+```
+Then visit `http://localhost:5173`.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+---
+
+## 📂 Project Structure
+```
+src/
+├── routes/             # SvelteKit pages
+│   ├── +layout.svelte  # Global layout
+│   ├── +page.svelte    # Homepage
+│   ├── about/          # Example page
+│   │   ├── +page.svelte
+├── lib/                # Shared utilities
+│   ├── stores/         # Global state management
+│   ├── utils/          # Helper functions
+│   ├── types/          # TypeScript types
+├── styles/             # Tailwind styles
+│   ├── app.css
 ```
 
-## Building
+---
 
-To create a production version of your app:
-
+## 📌 Customization
+### Tailwind
+TailwindCSS is preconfigured. Modify styles in:
 ```bash
-npm run build
+src/styles/app.css
+tailwind.config.ts
 ```
 
-You can preview the production build with `npm run preview`.
+### Linting & Formatting
+ESLint and Prettier are included:
+```bash
+npm run lint
+```
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### Deployment
+By default, this uses **Node.js adapter**. For Netlify:
+```bash
+npm install -D @sveltejs/adapter-netlify
+```
+Then update `svelte.config.js`.
+
+---
+
+## ❓ Questions?
+This template is designed for **flexibility**. Modify as needed! 🚀

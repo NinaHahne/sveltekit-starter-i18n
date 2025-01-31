@@ -1,3 +1,4 @@
+<!-- Example page -->
 <script>
     let team = [
         { name: "Alice", role: "Designer" },
