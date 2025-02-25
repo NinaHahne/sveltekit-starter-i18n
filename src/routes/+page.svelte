@@ -1,3 +1,13 @@
-<!-- Homepage -->
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<!-- Main entry page. This page lists all available locales and links to them. Necessary for SvelteKit to find routes and translations. -->
+
+<script lang="ts" module>
+  const locales = ['de', 'en'];
+</script>
+
+<ul>
+  {#each locales as locale}
+    <li>
+      <a href="/{locale}/">{locale}</a>
+    </li>
+  {/each}
+</ul>
