@@ -8,12 +8,13 @@
   <title>{$t('about.title')}</title>
 </svelte:head>
 
-<h1>About Us</h1>
-<p>Welcome to the about page! This is an example of a nested route.</p>
+<section class="relative flex min-h-[100dvh] flex-col items-center gap-4 pt-24">
+  <h1>{$t('about.intro_text')}</h1>
 
-<h2>Our Team</h2>
-<ul>
-  {#each Object.values($t('about.members')) as any as { name, role }}
-    <li><strong>{name}</strong> – {role}</li>
-  {/each}
-</ul>
+  <h2>{$t('about.team')}</h2>
+  <ul>
+    {#each Object.values($t('about.members')) as any as { name, role }}
+      <li><strong>{name}</strong> – {role}</li>
+    {/each}
+  </ul>
+</section>

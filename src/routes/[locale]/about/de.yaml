@@ -2,8 +2,7 @@
 
 title: Über uns | Figures SvelteKit Starter
 
-intro:
-  text: Willkommen auf der About-Seite! Dies ist ein Beispiel für eine Unterseitenstruktur.
+intro_text: Willkommen auf der About-Seite! Dies ist ein Beispiel für eine Unterseitenstruktur.
 
 team: Unser Team
 

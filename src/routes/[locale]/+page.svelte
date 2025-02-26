@@ -7,6 +7,7 @@
   <title>{$t('home.title')}</title>
 </svelte:head>
 
-<h1>{$t('home.title')}</h1>
-<p>{$t('home.intro_text')}</p>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<section class="relative flex min-h-[100dvh] flex-col items-center gap-4 pt-24">
+  <h1>{$t('home.intro_text')}</h1>
+  <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+</section>

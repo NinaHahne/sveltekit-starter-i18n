@@ -1,6 +1,8 @@
-# Common translations (header, footer, etc.)
+# common: common translations (header, footer, etc.)
 
 title: Figures SvelteKit Starter
 
 home: Home
 about: About
+
+switch: Auf Deutsch umstellen

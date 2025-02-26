@@ -2,8 +2,7 @@
 
 title: About Us | Figures SvelteKit Starter
 
-intro:
-  text: Welcome to the about page! This is an example of a nested route.
+intro_text: Welcome to the about page! This is an example of a nested route.
 
 team: Our Team
 
