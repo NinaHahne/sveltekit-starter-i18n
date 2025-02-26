@@ -5,6 +5,11 @@ export function localeFromPathname(pathname: string): string {
   return pathname.substr(1, 2) || 'de';
 }
 
+// Function to replace variables in text
+export function replaceVariables(text: string, variables: Record<string, string>) {
+  return text.replace(/%(\w+)%/g, (_, key) => variables[key] || `%${key}%`);
+}
+
 // Preload all translations (SSG-friendly)
 export const { t, locale, locales, loading, loadTranslations } = new i18n({
   preprocess: (input) => {

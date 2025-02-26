@@ -3,3 +3,5 @@
 title: Startseite | Figures SvelteKit Starter
 
 intro_text: Willkommen auf der Startseite auf deutsch.
+
+docs: 'Besuche %link%, um die Dokumentation zu lesen.'
