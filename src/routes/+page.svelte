@@ -20,7 +20,7 @@
 </script>
 
 <section class="relative flex min-h-[100dvh] flex-col items-center gap-4 pt-24">
-  <ul>
+  <ul class="hidden">
     {#each locales as locale}
       <li>
         <a href="/{locale}/">{locale}</a>
