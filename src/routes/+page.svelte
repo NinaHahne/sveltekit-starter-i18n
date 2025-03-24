@@ -1,5 +1,7 @@
 <!-- Main entry page. This page lists all available locales and links to them. Necessary for SvelteKit to find routes and translations. -->
 
+<!-- TODO: redirect to preferred locale -->
+
 <script lang="ts" module>
   const locales = ['de', 'en'];
 </script>
