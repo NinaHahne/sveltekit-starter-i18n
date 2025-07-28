@@ -1,8 +1,9 @@
 <!-- Global layout for all pages -->
 <script lang="ts">
   import { locale, t } from '$lib/translations';
-  import '../styles/app.css';
   import { page } from '$app/state';
+  import { onDestroy, onMount } from 'svelte';
+  import '../styles/app.css';
 
   let lang = $state($locale);
 
@@ -14,22 +15,86 @@
   };
 
   let { children } = $props();
+
+  const getScrollbarWidth = () => {
+    // Scrollbar-Breite ermitteln
+    const e = document.createElement('div');
+    (e.style.visibility = 'hidden'), (e.style.width = '100px'), document.body.append(e);
+    const t = e.offsetWidth;
+    e.style.overflow = 'scroll';
+    const o = document.createElement('div');
+    (o.style.width = '100%'), e.append(o);
+    const d = o.offsetWidth;
+    e.remove();
+    document.body.style.setProperty('--scrollbar-width', t - d + 'px');
+  };
+
+  let container: HTMLElement;
+  let resizeObserver: ResizeObserver;
+  let isBodyOverflowing = $state(false);
+
+  const checkBodyOverflow = () => {
+    isBodyOverflowing = document.body.scrollHeight > window.innerHeight;
+  };
+
+  let showMenu: boolean = $state(false);
+  let showNavigation = $state(false);
+
+  const toggleMenu = () => {
+    // Check screen size before toggling
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      showMenu = !showMenu;
+    }
+  };
+
+  const toggleMenuIfOpen = () => {
+    !showMenu || toggleMenu();
+  };
+
+  onMount(() => {
+    getScrollbarWidth();
+
+    resizeObserver = new ResizeObserver(() => {
+      // console.log("Layout changed!");
+
+      // Handle layout changes here
+      checkBodyOverflow();
+    });
+    if (container) {
+      resizeObserver.observe(container);
+    }
+
+    showNavigation = true;
+  });
 </script>
 
 <svelte:head>
   <title>{$t('common.title')}</title>
 </svelte:head>
 
-<header class="fixed top-0 z-50 flex h-16 w-full justify-between bg-slate-100 p-4">
-  <nav class="relative flex h-full items-center justify-center gap-4">
-    <a href="/{$locale}/">{$t('common.home')}</a>
-    <a href="/{$locale}/about">{$t('common.about')}</a>
-  </nav>
-  <button onclick={toggleLocale}>{lang === 'en' ? 'DE' : 'EN'}</button>
-</header>
+<div
+  bind:this={container}
+  class="relative flex min-h-dvh w-full flex-col justify-between"
+  class:overflowing={isBodyOverflowing}
+  class:show-menu={showMenu}
+>
+  <header class="fixed top-0 z-50 flex h-16 w-full justify-between bg-slate-100 p-4">
+    <nav class="relative flex h-full items-center justify-center gap-4">
+      <a href="/{$locale}/">{$t('common.home')}</a>
+      <a href="/{$locale}/about">{$t('common.about')}</a>
+    </nav>
+    <button onclick={toggleLocale}>{lang === 'en' ? 'DE' : 'EN'}</button>
+  </header>
 
-<main>
-  {@render children()}
-</main>
+  <main class="relative flex flex-col p-4">
+    {@render children()}
+  </main>
 
-<footer></footer>
+  <footer class="relative">
+    <div class="flex items-center bg-slate-100 p-4">
+      <p class="flex-1 text-left">renderedWithCare</p>
+      <div class="h-5 w-5 flex-none text-center">🌻</div>
+      <p class="flex-1 text-right">&copy; 2025 Erin Example</p>
+    </div>
+  </footer>
+</div>

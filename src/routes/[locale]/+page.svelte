@@ -10,8 +10,8 @@
   <title>{$t('home.title')}</title>
 </svelte:head>
 
-<section class="relative flex min-h-[100dvh] flex-col items-center gap-4 pt-24">
+<section class="relative flex flex-col items-center gap-4 pt-24 text-center">
   <h1>{$t('home.intro_text')}</h1>
   <!-- @html is a special Svelte syntax to render HTML, see https://svelte.dev/docs/svelte/@html -->
-  <p>{@html replaceVariables($t('home.docs'), { link: docsLink })}</p>
+  <!-- <p>{@html replaceVariables($t('home.docs'), { link: docsLink })}</p> -->
 </section>
