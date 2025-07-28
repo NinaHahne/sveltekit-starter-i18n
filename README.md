@@ -1,4 +1,4 @@
-# Figures SvelteKit Starter
+# SvelteKit Starter
 
 This is a **SvelteKit starter template** for new projects. It includes:
 
@@ -6,6 +6,7 @@ This is a **SvelteKit starter template** for new projects. It includes:
 - ✅ **TailwindCSS** for styling
 - ✅ **ESLint & Prettier** for code formatting
 - ✅ **Example routing (`/about`)** for structure reference
+- ✅ **i18n support** (`sveltekit-i18n`)
 - ✅ **Reusable utilities (`src/lib/`)**
 - ✅ **Uses `@sveltejs/adapter-static` for static site generation**
 
@@ -31,17 +32,32 @@ Then visit `http://localhost:5173`.
 
 ```
 src/
-├── routes/             # SvelteKit pages
-│   ├── +layout.svelte  # Global layout
-│   ├── +page.svelte    # Homepage
-│   ├── about/          # Example page
-│   │   ├── +page.svelte
-├── lib/                # Shared utilities
-│   ├── stores/         # Global state management
-│   ├── utils/          # Helper functions
-│   ├── types/          # TypeScript types
-├── styles/             # Tailwind styles
-│   ├── app.css
+├── app.d.ts              # App types
+├── app.html              # HTML template
+├── hooks.server.ts       # HTML lang injection
+├── lib/                  # Shared utilities
+│   ├── components/       # Reusable components
+│   ├── i18n.ts           # Optional helper for locale-to-value translation
+│   ├── stores/           # Global state management (optional)
+│   ├── translations.ts   # sveltekit-i18n setup
+│   ├── types/            # Custom TypeScript types
+│   └── utils/            # Utility functions
+├── routes/               # SvelteKit routes
+│   ├── +layout.svelte    # Global layout with nav & lang switch
+│   ├── +layout.ts        # Loads correct translation per route
+│   ├── +page.svelte      # Root page that redirects to user locale
+│   ├── de.yaml           # Shared layout translations (German)
+│   ├── en.yaml           # Shared layout translations (English)
+│   └── [locale]/         # Localized routes (e.g. /en, /de)
+│       ├── +page.svelte  # Home page for each locale
+│       ├── de.yaml       # Home translations (German)
+│       ├── en.yaml       # Home translations (English)
+│       └── about/        # Example subpage
+│           ├── +page.svelte
+│           ├── de.yaml
+│           └── en.yaml
+├── styles/
+│ └── app.css             # Global styles (Tailwind)
 ```
 
 ---
