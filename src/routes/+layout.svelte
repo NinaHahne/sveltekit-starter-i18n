@@ -66,6 +66,11 @@
 
     showNavigation = true;
   });
+
+  onDestroy(() => {
+    // console.log("layout onDestroy");
+    resizeObserver?.disconnect();
+  });
 </script>
 
 <svelte:head>
