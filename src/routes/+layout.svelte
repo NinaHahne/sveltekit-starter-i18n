@@ -79,16 +79,18 @@
 
 <div
   bind:this={container}
-  class="relative flex min-h-dvh w-full flex-col justify-between"
+  class="relative flex min-h-dvh w-full flex-col justify-between bg-background"
   class:overflowing={isBodyOverflowing}
   class:show-menu={showMenu}
 >
-  <header class="fixed top-0 z-50 flex h-16 w-full justify-between bg-slate-100 p-4">
+  <header class="fixed top-0 z-50 flex h-16 w-full justify-between bg-background-nav p-4">
     <nav class="relative flex h-full items-center justify-center gap-4">
       <a href="/{$locale}/">{$t('common.home')}</a>
       <a href="/{$locale}/about">{$t('common.about')}</a>
     </nav>
-    <button onclick={toggleLocale}>{lang === 'en' ? 'DE' : 'EN'}</button>
+    <button onclick={toggleLocale} class="flex h-8 w-8 items-center justify-center rounded-[50%] p-2"
+      >{lang === 'en' ? 'DE' : 'EN'}</button
+    >
   </header>
 
   <main class="relative flex flex-col p-4">
@@ -96,14 +98,12 @@
   </main>
 
   <footer class="relative">
-    <div class="flex items-center bg-slate-100 p-4">
-      <p class="flex-1 text-left">renderedWithCare</p>
-      <!-- <div class="h-5 w-5 flex-none text-center">🌻</div> -->
-      <div class="flex gap-2">
+    <div class="flex items-end justify-between gap-2 bg-background-nav p-4">
+      <div class="flex flex-wrap gap-2">
         <a href="/{$locale}/imprint">{$t('common.imprint')}</a>
         <a href="/{$locale}/privacy">{$t('common.privacy')}</a>
       </div>
-      <p class="flex-1 text-right">&copy; 2025 Erin Example</p>
+      <p class="whitespace-nowrap text-right text-base">&copy; 2025 Erin Example</p>
     </div>
   </footer>
 </div>

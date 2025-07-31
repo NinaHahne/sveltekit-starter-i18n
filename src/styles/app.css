@@ -23,3 +23,43 @@ body:has(.show-menu.overflowing) {
 body:has(.show-menu.overflowing) #toggle_menu {
   right: var(--scrollbar-width);
 }
+
+@layer base {
+  /* Typography */
+  h1 {
+    @apply text-4xl font-bold;
+    @apply mb-4;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-medium;
+  }
+  h4 {
+    @apply text-xl font-medium;
+  }
+  h5 {
+    @apply text-lg font-medium;
+  }
+  h6 {
+    @apply text-lg font-medium;
+  }
+
+  p {
+    @apply text-lg;
+  }
+
+  /* Links and Buttons */
+  header a {
+    @apply text-link-contrast rounded-md bg-link-hover px-3 py-1 font-medium shadow-sm transition active:bg-link-active hoverable:hover:bg-background hoverable:hover:text-link-hover;
+  }
+
+  header button {
+    @apply text-link-contrast rounded-md bg-link-hover font-medium shadow-sm transition active:bg-link-active hoverable:hover:bg-background hoverable:hover:text-link-hover;
+  }
+
+  footer a {
+    @apply text-base text-link underline underline-offset-4 transition active:text-link-active hoverable:hover:text-link-hover;
+  }
+}
