@@ -46,6 +46,20 @@ export const { t, locale, locales, loading, loadTranslations } = new i18n({
         en: import('../routes/[locale]/about/en.yaml'),
       },
     },
+    {
+      key: 'imprint',
+      translations: {
+        de: import('../routes/[locale]/imprint/de.yaml'),
+        en: import('../routes/[locale]/imprint/en.yaml'),
+      },
+    },
+    {
+      key: 'privacy',
+      translations: {
+        de: import('../routes/[locale]/privacy/de.yaml'),
+        en: import('../routes/[locale]/privacy/en.yaml'),
+      },
+    },
   ].flatMap(({ key, translations }) =>
     Object.entries(translations).map(([locale, translation]) => ({
       locale,

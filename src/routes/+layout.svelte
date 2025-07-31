@@ -98,7 +98,11 @@
   <footer class="relative">
     <div class="flex items-center bg-slate-100 p-4">
       <p class="flex-1 text-left">renderedWithCare</p>
-      <div class="h-5 w-5 flex-none text-center">🌻</div>
+      <!-- <div class="h-5 w-5 flex-none text-center">🌻</div> -->
+      <div class="flex gap-2">
+        <a href="/{$locale}/imprint">{$t('common.imprint')}</a>
+        <a href="/{$locale}/privacy">{$t('common.privacy')}</a>
+      </div>
       <p class="flex-1 text-right">&copy; 2025 Erin Example</p>
     </div>
   </footer>
