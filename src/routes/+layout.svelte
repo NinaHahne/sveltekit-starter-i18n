@@ -95,10 +95,21 @@
         {@const url = key === 'home' ? '' : `${key}/`}
         {@const fullUrl = `/${lang}/${url}`}
         {@const isActive = fullUrl === page.url.pathname}
-        <a href={fullUrl} class:active={isActive} class:underline={isActive}>{name}</a>
+        <a
+          href={fullUrl}
+          class:active={isActive}
+          class:bg-button-active={isActive}
+          class:text-link-contrast={isActive}
+          class:text-link-active={!isActive}
+          class:hoverable:hover:bg-link-hover={!isActive}
+          class="active:bg-button-active rounded-md bg-background px-3 py-1 font-medium underline-offset-4 shadow-sm transition hoverable:hover:text-link-contrast"
+          >{name}</a
+        >
       {/each}
     </nav>
-    <button onclick={toggleLocale} class="flex h-8 w-8 items-center justify-center rounded-[50%] p-2"
+    <button
+      onclick={toggleLocale}
+      class="bg-button active:bg-button-active hoverable:hover:bg-button-hover flex h-8 w-8 items-center justify-center rounded-[50%] p-2 font-medium text-link-active shadow-sm transition hoverable:hover:text-link-contrast"
       >{lang === 'en' ? 'DE' : 'EN'}</button
     >
   </header>

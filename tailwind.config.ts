@@ -23,10 +23,15 @@ export default {
           dark: '#b91c1c', // red-800
         },
         link: {
-          DEFAULT: '#2563eb', // blue-600
+          DEFAULT: '#1e3a8a', // blue-600
           hover: '#1d4ed8', // blue-700
           active: '#1e3a8a', // blue-900
           contrast: '#fefcfb', // Soft White / text on buttons
+        },
+        button: {
+          DEFAULT: '#fefcfb', // Soft White
+          hover: '#1d4ed8', // blue-700
+          active: '#1e3a8a', // blue-900
         },
         text: {
           base: '#1f2937', // gray-800
@@ -35,7 +40,7 @@ export default {
         background: {
           DEFAULT: '#fefcfb', // Soft White
           muted: '#f9fafb', // gray-50
-          nav: '#f1f5f9', // slate-100
+          nav: '#eaf1f9', // blue-50
         },
 
         // custom colors

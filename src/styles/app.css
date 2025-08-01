@@ -50,15 +50,6 @@ body:has(.show-menu.overflowing) #toggle_menu {
     @apply text-lg;
   }
 
-  /* Links and Buttons */
-  header a {
-    @apply rounded-md bg-link-hover px-3 py-1 font-medium text-link-contrast shadow-sm transition active:bg-link-active hoverable:hover:bg-background hoverable:hover:text-link-hover;
-  }
-
-  header button {
-    @apply rounded-md bg-link-hover font-medium text-link-contrast shadow-sm transition active:bg-link-active hoverable:hover:bg-background hoverable:hover:text-link-hover;
-  }
-
   footer a {
     @apply text-base text-link underline underline-offset-4 transition active:text-link-active hoverable:hover:text-link-hover;
   }
