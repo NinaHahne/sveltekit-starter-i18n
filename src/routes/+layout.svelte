@@ -14,6 +14,10 @@
     window.location.href = currentPath; // Forces a full reload to apply the new locale
   };
 
+  const headerLinks = $t('common.header_links');
+  // when using CMS:
+  // let headerLinks: { key: string; name: string }[] = $state($t('common.header_links'));
+
   let { children } = $props();
 
   const getScrollbarWidth = () => {
@@ -64,6 +68,8 @@
       resizeObserver.observe(container);
     }
 
+    // when using CMS, assign headerLinks here
+
     showNavigation = true;
   });
 
@@ -85,8 +91,12 @@
 >
   <header class="fixed top-0 z-50 flex h-16 w-full justify-between bg-background-nav p-4">
     <nav class="relative flex h-full items-center justify-center gap-4">
-      <a href="/{$locale}/">{$t('common.home')}</a>
-      <a href="/{$locale}/about">{$t('common.about')}</a>
+      {#each Object.entries(headerLinks ?? {}) as [key, name = ''] (key)}
+        {@const url = key === 'home' ? '' : `${key}/`}
+        {@const fullUrl = `/${lang}/${url}`}
+        {@const isActive = fullUrl === page.url.pathname}
+        <a href={fullUrl} class:active={isActive} class:underline={isActive}>{name}</a>
+      {/each}
     </nav>
     <button onclick={toggleLocale} class="flex h-8 w-8 items-center justify-center rounded-[50%] p-2"
       >{lang === 'en' ? 'DE' : 'EN'}</button

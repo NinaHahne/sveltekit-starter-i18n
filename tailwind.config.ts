@@ -18,6 +18,10 @@ export default {
           dark: '#1e40af', // blue-800
           light: '#3b82f6', // blue-500
         },
+        accent: {
+          DEFAULT: '#ef4444', // red-600
+          dark: '#b91c1c', // red-800
+        },
         link: {
           DEFAULT: '#2563eb', // blue-600
           hover: '#1d4ed8', // blue-700
