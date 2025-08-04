@@ -2,9 +2,6 @@
 
 title: SvelteKit Starter
 
-home: Startseite
-about: Über uns
-
 header_links:
   home: Startseite
   about: Über uns

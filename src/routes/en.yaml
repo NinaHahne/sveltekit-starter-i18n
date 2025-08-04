@@ -2,9 +2,6 @@
 
 title: SvelteKit Starter
 
-home: Home
-about: About
-
 header_links:
   home: Home
   about: About
